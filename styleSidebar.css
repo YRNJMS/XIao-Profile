@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Paytone+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    --beige: #f8f9fa;
+    --yellow: #ffd582;
+    --dark-gray: #212529;
+    --light-gray: #464D5B;
+    --black: #0e0f12;
+    --bs-yellow: #ffc107;
+    --text-beige-color: rgb(234, 215, 177);
+    --content-text-color: #f5f5f5;
+    --content-text-accent-color: 234, 215, 177;
+    --content-text-dark-primary-color: rgb(73, 83, 102);
+    --content-text-dark-secodnary-color: rgb(160, 167, 171);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins" , sans-serif;
+}
+html::-webkit-scrollbar {
+    display: none;
+  }
+@font-face {
+    font-family: zh-cn;
+    src: url(assets/Genshin-Impact-Font/zh-cn.ttf);
+}
+.menuSidebar {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 78px;
+    background: hsla(40, 100%, 80%, 0.288);
+    padding: 0 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: black 1px 1px 10px -3px;
+    transition: all 0.5s ease;
+    z-index: 10;
+}
+.menuSidebar.active {
+    width: 240px;
+}
+.menuSidebar .logoContent .logo {
+    color: var(--black);
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+.menuSidebar.active .logoContent .logo{
+    opacity: 1;
+    pointer-events: none;
+}
+.logoContent .logo i {
+    font-size: 28px;
+    margin-right: 5px;
+}
+.logoContent .logo .logoName {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: zh-cn;
+}
+.menuSidebar #btn {
+    position: absolute;
+    color: var(--black);
+    left: 50%;
+    top: 6px;
+    font-size: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateX(-50%);
+}
+.menuSidebar.active #btn {
+    left: 90%;
+}
+.menuSidebar ul {
+    margin-top: 20px;
+}
+.menuSidebar ul li {
+    position: relative;
+    height: 60px;
+    width: 100%;
+    margin: 0px 10px ;
+    list-style: none;
+    line-height: 50px;
+    padding-right: 10px;
+    transition: all 0.5s ease;
+}
+.menuSidebar.active ul li {
+    margin: 0 5px;
+}
+.menuSidebar ul li .toolTip {
+    position: absolute;
+    left: 120px;
+    top: 0;
+    transform: translate(-50%, -60%);
+    height: 35px;
+    width: 122px;
+    background: var(--yellow);
+    border-radius: 6px;
+    line-height: 35px;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    box-shadow: 0 5px 10px hsla(220, 11%, 21%, 0.367);
+    display: block;
+}
+.menuSidebar.active ul li .toolTip {
+    display: none;
+}
+.menuSidebar ul li:hover .toolTip {
+    transition: all 0.5s ease;
+    top: 50%;
+    opacity: 1;
+}
+
+.menuSidebar ul li a{
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+.menuSidebar ul li a:hover {
+    color: var(--dark-gray);
+    background: var(--yellow);
+}
+.menuSidebar ul li i {
+    height: 50px;
+    min-width: 30px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+.menuSidebar .linkName {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+.menuSidebar.active .linkName {
+    opacity: 1;
+    pointer-events: auto;
+}
+.menuSidebar .profileContent {
+    position: absolute;
+    color: var(--beige);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.menuSidebar .profileContent .profile {
+    position: relative;
+    padding: 10px 20px;
+    height: 65px;
+    background: none;
+    transition: all 0.4s ease;
+    
+}
+.menuSidebar.active .profileContent .profile {
+    background: rgba(0, 0, 0, 0.82);
+}
+.profileContent .profile .profileDetails {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+.menuSidebar.active .profile .profileDetails {
+    opacity: 1;
+    pointer-events: auto;
+}
+.profile .profileDetails img {
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.profile .profileDetails .nameRole {
+    margin-left: 10px;
+}
+.profile .profileDetails .name {
+    font-size: 15px;
+    font-weight: 400;
+}
+.profile .profileDetails .role {
+    font-size: 12px;
+}
+.profile #logout {
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.5s ease;
+    background: rgba(0, 0, 0, 0.82);    
+}
+.menuSidebar.active .profile #logout {
+    left: 88%;
+}
+.menuSidebar.active .profile #logout {
+    background: none;
+}
+.pageTitle {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 240px) ;
+    left: 240px;
+}
+
+.pageTitle {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 240px);
+    left: 78px;
+    width: calc(100% - 78px);
+    transition: all 0.5s ease;
+}   
+.pageTitle .text {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--dark-gray);
+    margin: 12px;
+    text-shadow: var(--dark-gray) 1px 1px 20px;
+}
+.menuSidebar.active ~ .pageTitle {
+    left: 240px;
+}
